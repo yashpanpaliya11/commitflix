@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="commitflix-token" content="__SESSION_TOKEN__">
+  <title>CommitFlix — Press play on any commit</title>
+  <link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="CommitFlix home"><span class="brand-mark">◀</span>commitflix<span class="beta">LOCAL / 0.1</span></a>
+    <div class="repo-label"><span class="green-dot"></span><span id="repo-name">Connecting…</span><span class="divider">/</span><span id="branch">—</span></div>
+    <button id="help-button" class="icon-button" title="Keyboard shortcuts">?</button>
+  </header>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="sidebar-head"><span class="eyebrow">THE ARCHIVE</span><span id="commit-count" class="muted">—</span></div>
+      <div class="search-wrap"><span>⌕</span><input id="search" type="search" placeholder="Search commit messages…" aria-label="Search commit messages"><kbd>/</kbd></div>
+      <div class="history-controls"><input id="history-ref" value="HEAD" aria-label="History branch or tag" title="History branch or tag"><button id="load-ref" class="text-button">Load ref ↗</button></div>
+      <div id="history" class="history" aria-label="Commit timeline"></div>
+      <button id="load-more" class="load-more">Load older commits ↓</button>
+      <div class="sidebar-footer"><span class="green-dot"></span> Local history. Your machine.<br><span id="working-status" class="muted"></span></div>
+    </aside>
+    <main>
+      <section class="hero">
+        <div class="hero-top"><span class="eyebrow"><span class="green-dot"></span> YOUR CODE HAS A BACKSTORY</span><span id="selection-index" class="muted mono">— / —</span></div>
+        <h1>Every commit.<br>A <em>new perspective.</em></h1>
+        <p class="intro">Go back. Run it again. See what changed.</p>
+        <div class="jump-row"><label for="jump-ref">JUMP TO</label><input id="jump-ref" placeholder="Commit, branch, or tag" aria-label="Commit, branch, or tag"><button id="jump-button">Preview ↗</button><span class="or">or</span><input id="jump-date" type="date" aria-label="Preview before date"><button id="date-button" class="text-button">Find by date</button></div>
+      </section>
+      <section class="workspace">
+        <div class="workspace-heading"><div><span class="eyebrow">ON THE TIMELINE</span><h2 id="selected-message">Loading your story…</h2><p id="selected-meta" class="muted mono">Select a commit to begin</p></div><button id="play" class="primary" disabled>▶ Play this commit</button></div>
+        <div class="compare-bar"><span class="eyebrow">COMPARE</span><button id="pick-a" class="pick">A <span id="a-label">Set selected</span></button><span class="compare-arrow">→</span><button id="pick-b" class="pick">B <span id="b-label">Set selected</span></button><button id="compare" disabled>▶ Play both</button><button id="show-diff" class="text-button" disabled>View code diff ↗</button></div>
+        <div class="view-bar"><div class="tabs" role="tablist"><button id="preview-tab" class="tab active" role="tab" aria-selected="true">Live previews <span id="session-count">0</span></button><button id="diff-tab" class="tab" role="tab" aria-selected="false">Code changes</button></div><div class="viewport-controls" aria-label="Preview width"><button data-width="desktop" class="active">Desktop</button><button data-width="mobile">Mobile</button></div></div>
+        <section id="preview-panel" aria-label="Live previews"><div id="previews" class="previews"></div><div id="empty-state" class="empty-state"><div class="empty-symbol">◀<span>▶</span></div><h3>The past is ready to play.</h3><p>Select a commit and press play.<br>Your current checkout stays right where it is.</p><div class="empty-steps"><span>01 / PICK A COMMIT</span><span>02 / PRESS PLAY</span><span>03 / SEE THE DIFFERENCE</span></div></div></section>
+        <section id="diff-panel" hidden><div class="diff-toolbar"><span id="diff-summary" class="muted">Choose A and B to compare committed snapshots.</span><button id="export" disabled>Export report ↓</button></div><pre id="diff-stat"></pre><pre id="diff-code" class="diff-code"></pre></section>
+        <details id="logs"><summary>Preview console <span class="muted">/ install output & runtime logs</span></summary><div id="log-buttons"></div><pre id="log-output">Run a preview to see its logs here.</pre></details>
+      </section>
+      <footer class="main-footer"><span>◀ COMMITFLIX</span><span>Press play on any commit.</span><span>Worktree previews · Local execution</span></footer>
+    </main>
+  </div>
+  <div id="toast" role="status" hidden></div>
+  <dialog id="shortcuts"><button id="close-help" class="dialog-close" aria-label="Close shortcuts">×</button><span class="eyebrow">THE REMOTE CONTROL</span><h2>A few shortcuts.</h2><p><kbd>↑</kbd> <kbd>↓</kbd> Browse loaded commits</p><p><kbd>P</kbd> Play selected commit</p><p><kbd>A</kbd> <kbd>B</kbd> Assign comparison slots</p><p><kbd>D</kbd> View selected comparison diff</p><p><kbd>/</kbd> Search history</p><p><kbd>?</kbd> Show shortcuts</p><p class="muted">Previews execute project scripts locally. Only run trusted history. Preview files are disposable. Databases and services are not automatically isolated.</p></dialog>
+</body>
+</html>

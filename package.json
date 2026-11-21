@@ -1,0 +1,17 @@
+{
+  "name": "commitflix",
+  "version": "0.1.0",
+  "description": "Press play on any commit. A local Git time machine with live previews, comparisons and regression hunting.",
+  "author": "Yash Panpaliya",
+  "repository": { "type": "git", "url": "git+https://github.com/yashpanpaliya11/commitflix.git" },
+  "homepage": "https://github.com/yashpanpaliya11/commitflix#readme",
+  "bugs": { "url": "https://github.com/yashpanpaliya11/commitflix/issues" },
+  "type": "module",
+  "bin": { "commitflix": "bin/commitflix.js" },
+  "exports": { ".": "./src/git.js", "./demo": "./src/demo.js" },
+  "files": ["bin", "src", "public", "README.md", "LICENSE", "CHANGELOG.md"],
+  "engines": { "node": ">=22" },
+  "scripts": { "test": "node --test", "start": "node bin/commitflix.js", "check": "node --check bin/commitflix.js && node --check src/server.js && node --check public/app.js", "prepack": "npm run check" },
+  "keywords": ["git", "time-machine", "worktree", "preview", "developer-tools", "bisect", "compare", "local-first"],
+  "license": "MIT"
+}
