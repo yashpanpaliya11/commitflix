@@ -6,7 +6,7 @@ A zero-runtime-dependency npm CLI that turns local Git history into a playable t
 
 ## Install
 
-Requires **Node.js 22+** and **Git 2.31+**. Install the published package and try its built-in demo:
+Requires **Node.js 22+** and **Git 2.31+**. After npm publication, install the package and try its built-in demo:
 
 ```sh
 npx commitflix demo
@@ -120,7 +120,7 @@ npm pack
 
 There is no build step. Runtime uses Node built-ins. macOS was exercised during development; Windows command shims and process-tree cleanup are implemented but require Windows CI validation. Linux also needs validation before a stable release.
 
-Package releases are published to [npm](https://www.npmjs.com/package/commitflix). Check the changelog for version changes.
+The first npm release is pending account login verification. Until then, use the source checkout commands above. Check the changelog for version changes.
 
 ## Next expansion
 
